@@ -1,11 +1,13 @@
 name: tfsec-pr-commenter
 on:
+  push:
+    branches:
+      - master
   pull_request:
 jobs:
   tfsec:
     name: tfsec PR commenter
     runs-on: ubuntu-latest
-
     steps:
       - name: Clone repo
         uses: actions/checkout@master
