@@ -10,6 +10,9 @@ Dockerfile contains the following Defects
 3\. Container exposes `port 22` aka SSH</br>
 4\. Container has hardcoded `ENVIRONMENT_VARIABLE`
 
+## Detection of the Defects with SAST tools
+
+### Trivy: to scan the `Dockerfile`
 ```bash
 ➜ make scan/dockerfile
 trivy config ./
@@ -38,6 +41,7 @@ Failures: 3 (UNKNOWN: 0, LOW: 0, MEDIUM: 2, HIGH: 1, CRITICAL: 0)
 +---------------------------+------------+--------------------+----------+------------------------------------------+
 ```
 
+### Trivy: to scan the `Container Image`
 ```bash
 ➜ make scan/container
 trivy image --severity HIGH,CRITICAL --ignore-unfixed --ignore-policy example-policy.rego quay.io/acme/dummy-container:1.1.unknown
