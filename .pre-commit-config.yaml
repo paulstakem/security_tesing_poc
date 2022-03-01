@@ -14,3 +14,7 @@ repos:
     rev: v1.4.2
     hooks:
     -   id: tfsec
+-   repo: https://github.com/hadolint/hadolint
+    rev: v2.8.0
+    hooks:
+    -   id: hadolint

@@ -1,0 +1,5 @@
+quay.io/kiali/kiali:v1.45
+kong:2.7.0
+grafana/grafana-oss:8.3.4
+quay.io/prometheus/prometheus:v2.32.1
+gcr.io/istio-release/citadel:1.5.10
