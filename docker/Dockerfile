@@ -1,0 +1,5 @@
+FROM gvenzl/oracle-xe
+
+EXPOSE 22
+
+ENV ORACLE_PASSWORD=ANewPassw0rd1234
