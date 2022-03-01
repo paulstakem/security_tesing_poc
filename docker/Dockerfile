@@ -1,5 +1,8 @@
-FROM gvenzl/oracle-xe
+FROM gvenzl/oracle-xe:latest
 
 EXPOSE 22
 
-ENV AWS_Key=AKIALALEMEL33243OLIA
+ENV AWS_API_KEY=AKIALALEMEL33243OLIA
+ENV password=Passw0rd1234
+
+USER root

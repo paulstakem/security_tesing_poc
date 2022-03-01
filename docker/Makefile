@@ -21,6 +21,13 @@ scan/container:
 scan/dockerfile:
 	trivy config ./
 
+sbom:
+	syft packages quay.io/acme/dummy-container:1.1.unknown -o cyclonedx-json=sbom.json
+
+opa-test:
+	conftest test Dockerfile
+
+
 ##----------------------------------------------------------------------------##
 # Registry and
 

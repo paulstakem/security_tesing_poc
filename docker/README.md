@@ -95,3 +95,16 @@ Total: 1 (HIGH: 0, CRITICAL: 1)
 12:30PM WRN leaks found: 1
 12:30PM INF scan duration: 57.810054ms
 ```
+
+### Conftest: Policy As Code
+
+```bash
+➜ make opa-test
+conftest test Dockerfile
+WARN - Dockerfile - main - Do not use latest tag with image: ["gvenzl/oracle-xe"]
+FAIL - Dockerfile - main - Suspicious ENV key found: ["AWS_API_KEY", "AKIALALEMEL33243OLIA"]
+FAIL - Dockerfile - main - Suspicious ENV key found: ["password", "Passw0rd1234"]
+
+6 tests, 3 passed, 1 warning, 2 failures, 0 exceptions
+make: *** [opa-test] Error 1
+```
