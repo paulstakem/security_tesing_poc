@@ -101,10 +101,11 @@ Total: 1 (HIGH: 0, CRITICAL: 1)
 ```bash
 ➜ make opa-test
 conftest test Dockerfile
-WARN - Dockerfile - main - Do not use latest tag with image: ["gvenzl/oracle-xe"]
+WARN - Dockerfile - main - Do not use latest tag with image: ["gvenzl/oracle-xe:latest"]
+FAIL - Dockerfile - main - Do not expose port TCP Port 22
 FAIL - Dockerfile - main - Suspicious ENV key found: ["AWS_API_KEY", "AKIALALEMEL33243OLIA"]
 FAIL - Dockerfile - main - Suspicious ENV key found: ["password", "Passw0rd1234"]
 
-6 tests, 3 passed, 1 warning, 2 failures, 0 exceptions
+7 tests, 3 passed, 1 warning, 3 failures, 0 exceptions
 make: *** [opa-test] Error 1
 ```
