@@ -8,7 +8,7 @@ Dockerfile contains the following Defects
 1\. Poorly sourced `FROM` container for Build<br/>
 2\. Container runs as `root`<br/>
 3\. Container exposes `port 22` aka SSH</br>
-4\. Container has hardcoded `ENVIRONMENT_VARIABLE`
+4\. Container has hardcoded `ENVIRONMENT_VARIABLE` which contains sensitive data
 
 ## Detection of the Defects with SAST tools
 
@@ -61,4 +61,37 @@ Total: 1 (HIGH: 0, CRITICAL: 1)
 |                |                  |          |                   |                | an attacker to execute...             |
 |                |                  |          |                   |                | -->avd.aquasec.com/nvd/cve-2022-24407 |
 +----------------+------------------+----------+-------------------+----------------+---------------------------------------+
+```
+
+### Gitleaks: detect secrets
+
+```bash
+➜ gitleaks protect -v
+
+    ○
+    │╲
+    │ ○
+    ○ ░
+    ░    gitleaks
+
+{
+	"Description": "AWS",
+	"StartLine": 5,
+	"EndLine": 5,
+	"StartColumn": 13,
+	"EndColumn": 32,
+	"Match": "AKIALALEMEL33243OLIA",
+	"Secret": "AKIALALEMEL33243OLIA",
+	"File": "docker/Dockerfile",
+	"Commit": "",
+	"Entropy": 0,
+	"Author": "",
+	"Email": "",
+	"Date": "0001-01-01T00:00:00Z",
+	"Message": "",
+	"Tags": [],
+	"RuleID": "aws-access-token"
+}
+12:30PM WRN leaks found: 1
+12:30PM INF scan duration: 57.810054ms
 ```
