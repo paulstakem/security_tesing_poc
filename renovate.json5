@@ -1,0 +1,44 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":semanticCommitScopeDisabled"
+  ],
+  "prConcurrentLimit": 5,
+  "separateMultipleMajor": true,
+  "separateMinorPatch": true,
+  "timezone": "Europe/London",
+  "platformAutomerge": true,
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "digest",
+        "minor",
+        "patch",
+        "pinDigest",
+        "lockFileMaintenance"
+      ],
+      "automerge": true
+    },
+    {
+      "description": "Renovate Github Actions",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "semanticCommitType": "build"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "^.github/workflows/.+.yaml$"
+      ],
+      "matchStrings": [
+        "TAG=(?<currentValue>.*?)@(?<currentDigest>sha256:[a-f0-9]+)\""
+      ],
+      "depNameTemplate": "amazoncorretto",
+      "datasourceTemplate": "docker"
+    }
+  ]
+}
