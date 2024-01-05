@@ -1,9 +1,13 @@
 name: tfsec-pr-commenter
 on:
-  push:
-    branches:
-      - master
   pull_request:
+    branches:
+      - '!master'
+    paths:
+      - 'terraform/**'
+concurrency:
+  cancel-in-progress: true
+permissions: read-all
 jobs:
   tfsec:
     name: tfsec PR commenter
@@ -15,3 +19,4 @@ jobs:
         uses: aquasecurity/tfsec-pr-commenter-action@v1.0.5
         with:
           github_token: ${{ github.token }}
+
