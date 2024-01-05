@@ -1,4 +1,4 @@
-FROM gvenzl/oracle-xe:latest
+FROM gvenzl/oracle-xe:latest@sha256:10112cb7872e98e52d136f7a9df2bcca953750e5e107532505586123fbbd2c60
 
 EXPOSE 22
 
