@@ -1,13 +1,11 @@
-name: build
+name: docker build
 on:
   pull_request:
     branches:
       - '!master'
     paths:
       - 'docker/**'
-concurrency:
-  cancel-in-progress: true
-permissions: read-all
+
 jobs:
   build:
     name: Build
